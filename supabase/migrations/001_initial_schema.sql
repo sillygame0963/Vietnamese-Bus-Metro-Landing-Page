@@ -10,6 +10,7 @@ create table profiles (
 
 alter table profiles enable row level security;
 create policy "Profiles readable by all" on profiles for select using (true);
+create policy "Allow insert for new profiles" on profiles for insert with check (true);
 create policy "Users can update own profile" on profiles for update using (auth.uid() = id);
 
 -- Auto-create profile on signup

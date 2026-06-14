@@ -5,23 +5,57 @@ export interface Database {
         Row: Profile;
         Insert: Omit<Profile, 'created_at'>;
         Update: Partial<Omit<Profile, 'id'>>;
+        Relationships: [];
       };
       reviews: {
         Row: Review;
         Insert: Omit<Review, 'id' | 'created_at' | 'likes_count'>;
         Update: Partial<Omit<Review, 'id' | 'user_id'>>;
+        Relationships: [
+          {
+            foreignKeyName: 'reviews_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       review_likes: {
         Row: ReviewLike;
         Insert: Omit<ReviewLike, 'created_at'>;
-        Update: never;
+        Update: Partial<ReviewLike>;
+        Relationships: [
+          {
+            foreignKeyName: 'review_likes_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'review_likes_review_id_fkey';
+            columns: ['review_id'];
+            referencedRelation: 'reviews';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       ticket_scans: {
         Row: TicketScan;
         Insert: Omit<TicketScan, 'id' | 'created_at'>;
         Update: Partial<Omit<TicketScan, 'id' | 'user_id'>>;
+        Relationships: [
+          {
+            foreignKeyName: 'ticket_scans_user_id_fkey';
+            columns: ['user_id'];
+            referencedRelation: 'profiles';
+            referencedColumns: ['id'];
+          },
+        ];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
   };
 }
 
