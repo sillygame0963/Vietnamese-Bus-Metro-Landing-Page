@@ -1,0 +1,21 @@
+---
+import AuthButton from './islands/AuthButton';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-md mx-auto px-4 h-14 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg gradient-hero flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+        </svg>
+      </div>
+      <span class="font-bold text-lg text-text">GoViet</span>
+    </a>
+    <nav class="flex items-center gap-4">
+      <a href="#map" class="text-sm text-text-muted hover:text-primary transition-colors">Bản đồ</a>
+      <a href="#rewards" class="text-sm text-text-muted hover:text-primary transition-colors">Tích điểm</a>
+      <AuthButton client:idle />
+    </nav>
+  </div>
+</header>

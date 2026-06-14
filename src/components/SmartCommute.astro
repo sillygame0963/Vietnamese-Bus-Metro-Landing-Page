@@ -1,0 +1,62 @@
+---
+const guides = [
+  {
+    icon: '🌧️',
+    title: 'Mưa lớn? Metro + Grab đến ga',
+    desc: 'Khi trời mưa, đi Grab/xe ôm đến ga metro gần nhất, sau đó đi metro tới điểm đến. Tiết kiệm 60% chi phí.',
+    tag: 'Thời tiết',
+    tagColor: 'bg-blue-100 text-blue-700',
+  },
+  {
+    icon: '🕐',
+    title: 'Giờ cao điểm: Buýt → Metro',
+    desc: 'Buổi sáng 7-8h, đi buýt đến ga Bến Thành, đổi metro về Thủ Đức. Tránh kẹt xe Xa Lộ Hà Nội.',
+    tag: 'Lịch trình',
+    tagColor: 'bg-purple-100 text-purple-700',
+  },
+  {
+    icon: '🎒',
+    title: 'Du lịch cuối tuần: Metro + Xe đạp',
+    desc: 'Metro đến ga Thảo Điền, thuê xe đạp khám phá Quận 2. Lộ trình cafe hopping cực chill.',
+    tag: 'Du lịch',
+    tagColor: 'bg-green-100 text-green-700',
+  },
+];
+---
+
+<section class="py-10 px-4 bg-white">
+  <div class="max-w-md mx-auto">
+    <div class="text-center mb-6">
+      <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">HƯỚNG DẪN</span>
+      <h2 class="text-2xl font-bold text-text">Phối hợp thông minh</h2>
+      <p class="text-text-muted text-sm mt-2">Metro + xe buýt theo thời tiết & lịch trình</p>
+    </div>
+
+    <div class="space-y-4">
+      {guides.map((guide) => (
+        <div class="bg-surface rounded-2xl p-4 border border-gray-100 hover:border-primary/30 transition-colors cursor-pointer">
+          <div class="flex gap-3">
+            <div class="text-2xl shrink-0 mt-0.5">{guide.icon}</div>
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${guide.tagColor}`}>{guide.tag}</span>
+              </div>
+              <h3 class="text-sm font-bold text-text mb-1">{guide.title}</h3>
+              <p class="text-xs text-text-muted leading-relaxed">{guide.desc}</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 mt-3 ml-9">
+            <div class="flex items-center gap-1 text-xs text-primary font-medium">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Xem video hướng dẫn
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
